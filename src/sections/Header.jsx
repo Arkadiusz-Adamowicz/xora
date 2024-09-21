@@ -12,29 +12,37 @@ const NavLink = ({ title }) => (
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="fixed top-0 left-0 z-50 w-full py-10">
+    <header className="fixed left-0 top-0 z-50 w-full py-10">
       <div className="container flex h-14 items-center max-lg:px-5">
-        <a className="lg:hidden flex-1 cursor-pointer z-2">
+        <a className="z-2 flex-1 cursor-pointer lg:hidden">
           <img src="/images/xora.svg" width={115} height={55} alt="logo" />
         </a>
 
         <div
           className={clsx(
-            "w-full max-lg:fixed max-lg:top-0 max-lg:left-0 max-lg:w-full max-lg max-lg:bg-s2 max-lg:opacity-0",
-            isOpen ? "max-lg:opacity-100" : "max-lg:pointer-events-none"
+            "max-lg w-full max-lg:fixed max-lg:left-0 max-lg:top-0 max-lg:w-full max-lg:bg-s2 max-lg:opacity-0",
+            isOpen ? "max-lg:opacity-100" : "max-lg:pointer-events-none",
           )}
         >
-          <div className=" max-lg:relative max-lg:flex max-lg:flex-col max-lg:min-h-screen max-lg:p-6 max-lg:overflow-hidden sidebar-before max-md:px-4">
+          <div className="sidebar-before max-lg:relative max-lg:flex max-lg:min-h-screen max-lg:flex-col max-lg:overflow-hidden max-lg:p-6 max-md:px-4">
             <nav className="max-lg:relative max-lg:z-2 max-lg:my-auto">
               <ul className="flex max-lg:block max-lg:px-12">
                 <li className="nav-li">
                   <NavLink title="features" />
                   <div className="dot" />
-                  <NavLink title="pricing]" />
+                  <NavLink title="pricing" />
                 </li>
 
                 <li className="nav-logo">
-                  <LinkScroll>
+                  <LinkScroll
+                    to="hero"
+                    offset={-100}
+                    spy
+                    smooth
+                    className={clsx(
+                      "cursor-pointer transition-transform max-lg:hidden",
+                    )}
+                  >
                     <img
                       src="/images/xora.svg"
                       width={160}
@@ -50,11 +58,28 @@ const Header = () => {
                 </li>
               </ul>
             </nav>
+
+            <div className="absolute left-0 top-1/2 block h-[380px] w-[960px] -translate-y-1/2 translate-x-[-290px] rotate-90 lg:hidden">
+              <img
+                src="/images/bg-outlines.svg"
+                width={960}
+                height={380}
+                alt="outline"
+                className="relative z-2"
+              />
+              <img
+                src="/images/bg-outlines-fill.png"
+                width={960}
+                height={380}
+                alt="outline"
+                className="absolute inset-0 opacity-5 mix-blend-soft-light"
+              />
+            </div>
           </div>
         </div>
 
         <button
-          className="lg:hidden z-2 size-10 border-2 border-s4/25 rounded-full flex justify-center items-center"
+          className="z-2 flex size-10 items-center justify-center rounded-full border-2 border-s4/25 lg:hidden"
           onClick={() => setIsOpen((prev) => !prev)}
         >
           <img
