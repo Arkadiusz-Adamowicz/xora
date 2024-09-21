@@ -1,6 +1,7 @@
 import Features from "./sections/Features";
 import Header from "./sections/Header";
 import Hero from "./sections/Hero";
+import Pricing from "./sections/Pricing";
 
 const App = () => {
   return (
@@ -8,6 +9,7 @@ const App = () => {
       <Header />
       <Hero />
       <Features />
+      <Pricing />
     </main>
   );
 };
@@ -15,4 +17,4 @@ const App = () => {
 export default App;
 
 // https://www.youtube.com/watch?v=ukiGFmZ32YA
-// 57:30
+// 1:23
