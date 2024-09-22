@@ -3,7 +3,7 @@ import Button from "../components/Button";
 
 const Hero = () => {
   return (
-    <section className="relative pb-40 pt-60 max-lg:pb-36 max-lg:pt-52 max-md:pb-32 max-md:pt-36">
+    <section className="relative pb-40 pt-40 max-lg:pb-36 max-lg:pt-52 max-md:pb-32 max-md:pt-36">
       <Element name="hero">
         <div className="container">
           <div className="relative z-2 max-w-512 max-lg:max-w-388">
@@ -17,7 +17,7 @@ const Hero = () => {
               We designed XORA AI Video Editor to be an easy to use, quick to
               learn, and surprisingly powerful.
             </p>
-            <LinkScroll to="features" offset={-100} spy smooth>
+            <LinkScroll to="features" offset={-10} spy smooth>
               <Button icon="/images/zap.svg">Try it now</Button>
             </LinkScroll>
           </div>
